@@ -24,4 +24,5 @@
 
 ### 21. Merge Two Sorted Lists.ts
 
-- 함수의 파라미터 이름 뒤에 ?가 붙는 것은 optional parameter이다. 함수를 호출할 때 인자를 넘겨주지 않아도 된다. `function Foo(foo?: string)`와 같이 표현한다. 인자를 넘겨주지 않으면, optional parameter는 undefined가 된다. default parameter와 다른 점은 default parameter는 함수를 호출할 때 인자를 넘겨주지 않으면 미리 정해둔 값으로 인자가 정해지는 것이다.
+- 함수의 파라미터 이름 뒤에 ?가 붙는 것은 optional parameter이다. 함수를 호출할 때 인자를 넘겨주지 않아도 된다. `function Foo(foo?: string)`와 같이 표현한다. 인자를 넘겨주지 않으면, optional parameter는 undefined가 된다. optional parameter를 풀어쓰면,
+`function Foo(foo: string | undefined = undefined)`일 것이다.
