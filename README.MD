@@ -26,3 +26,7 @@
 
 - 함수의 파라미터 이름 뒤에 ?가 붙는 것은 optional parameter이다. 함수를 호출할 때 인자를 넘겨주지 않아도 된다. `function Foo(foo?: string)`와 같이 표현한다. 인자를 넘겨주지 않으면, optional parameter는 undefined가 된다. optional parameter를 풀어쓰면,
 `function Foo(foo: string | undefined = undefined)`일 것이다.
+
+### 26. Remove Duplicates from Sorted Array.ts
+
+- js의 array는 lexicographic을 기준으로 정렬한다. 예를 들어, 다음과 같은 `array [0, 3, 1000, 2]`가 있다면, sort를 호출한 결과값은 `[0, 1000, 2, 3]`이다. 따라서 comperator을 제공해야한다. comperator를 제공할 때는 반환한 값을 기준으로 두 원소를 정렬 한다. 결과값이 0보다 크면 두 번째 인자, 첫 번째 인자, 결과값이 0보다 작으면 첫 번째 인자, 두 번째 인자 순서이다. 동일하면 순서가 유지된다.
