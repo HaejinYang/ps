@@ -30,3 +30,7 @@
 ### 26. Remove Duplicates from Sorted Array.ts
 
 - js의 array는 lexicographic을 기준으로 정렬한다. 예를 들어, 다음과 같은 `array [0, 3, 1000, 2]`가 있다면, sort를 호출한 결과값은 `[0, 1000, 2, 3]`이다. 따라서 comperator을 제공해야한다. comperator를 제공할 때는 반환한 값을 기준으로 두 원소를 정렬 한다. 결과값이 0보다 크면 두 번째 인자, 첫 번째 인자, 결과값이 0보다 작으면 첫 번째 인자, 두 번째 인자 순서이다. 동일하면 순서가 유지된다.
+
+### 35. Search Insert Position.ts
+
+- indexOf함수는 원소를 찾아서 인덱스를 반환한다. 없다면 -1 반환.
