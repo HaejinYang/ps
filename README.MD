@@ -34,3 +34,8 @@
 ### 35. Search Insert Position.ts
 
 - indexOf함수는 원소를 찾아서 인덱스를 반환한다. 없다면 -1 반환.
+
+### 70. Climbing Stairs.ts
+
+- 피보나치 시퀀스의 문제를 재귀적으로 풀었다.
+- c++ vector의 reserve같이 쓰려면 `Array(10).fill(0);` Array(10)은 빈 엘리먼트 10개를 만드는 것이다. 하지만, 이터레이트를 할 수는 없다... 그래서 fill로 채워준다.
