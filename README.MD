@@ -43,3 +43,8 @@
 ### 88. Merge Sorted Array
 
 - 동일한 값을 허용하는 오름차순이라는 생각에 index를 0부터 봤지만, 이 문제는 마지막 인덱스부터 보는게 맞았다...
+### 100. Same Tress, 101. Symmetric Tree
+
+- 정렬되지 않은 트리에서 inorder traversal하면, 트리를 하나의 배열로 쭉 펴기 쉽다.
+- 정렬된 트리에서 inorder traversal하면 정렬된 요소들을 차례로 나열할 수 있다.
+ 
