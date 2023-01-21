@@ -132,3 +132,8 @@
 
 - 내장된 함수들을 이용해서 풀이했음.
 - number를 2진수 문자열로 바꾸기 위해, toString, 배열로 만들기 위해 split, 1을 찾기위해 filter...
+
+### 217. Contains Duplicate.ts
+
+- 이제 easy 난이도는 쉽게 느껴진다.
+- medium으로 넘어감.
