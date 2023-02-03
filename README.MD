@@ -135,5 +135,10 @@
 
 ### 217. Contains Duplicate.ts
 
-- 이제 easy 난이도는 쉽게 느껴진다.
-- medium으로 넘어감.
+- 이제 easy 난이도는 잘 풀리는거같다
+- 미디엄도 같이 풀면 괜찮을듯...
+
+### 225. Implement Stack using Queues.ts
+
+- 큐 2개를 이용하여 스택을 구현하는 문제
+- 큐를 2개 써서 한다는게 재밌었다.
