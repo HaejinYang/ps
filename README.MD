@@ -201,6 +201,6 @@
 ### 31. Next Permutation
 - 규칙 찾기에 실패했다. 힌트를 봤다. 이런 규칙이 있었다니...
 
-### 33, 34
+### 33. Search in Rotated Sorted Array, 34. Find First and Last Position of Element in Sorted Array
 - 두 문제 모두 정렬된 배열 안에서 원하는 원소를 찾는 문제이다.
 - 회전된 배열, 같은 원소가 있는 배열 등등 조건은 변할 수 있지만, 바이너리 서치를 쓸 수 있는 것.
