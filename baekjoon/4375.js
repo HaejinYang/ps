@@ -11,15 +11,15 @@ function solve() {
         }  
 
         let count = 1n;
-        let target = "1";
+        let target = 1n;
         while(true) {
-            if((BigInt(target) % element) === 0n) {
+            if((target % element) === 0n) {
                 console.log(Number(count));
 
                 return;
             }
 
-            target += "1";
+            target = target * 10n + 1n;
             count += 1n;
         }
     });
