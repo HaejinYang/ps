@@ -268,3 +268,26 @@
 - 전체적으로 논리는 맞았으나 문자열이 커짐에따라 숫자도 매우 커질 수 있다는 점을 간과하였다.
 - 문자열이 길 때는 BigInt를 염두해두어야 하고, sort를 쓸때 조심해야 한다. sort는 반환값으로 Number를 받고 있기 때문이다.
 - 만약 BigInt를 넘긴다면 타입에러가 발생한다.
+
+### 백준 2852
+- 초를 mm:ss 시간 형식으로 바꾸는 코드를 수정할 여지가 있다.
+```
+function secondsToMMSS(seconds) {
+    let mm = Math.floor(seconds / 60).toString();
+    mm = mm.length == 1? "0"+mm : mm;
+    let ss = (seconds % 60).toString();
+    ss = ss.length == 1? "0"+ss : ss;
+
+    return mm + ":" + ss;
+}
+
+이 코드에서 변환된 mm, ss가 한 자리 수 일 때 앞에 0을 붙여주는데
+js의 bultin function padStart나 padEnd류의 함수를 이용하면 좀더 깔끔해질수있다.
+
+function secondsToMMSS(seconds) {
+    const mm = Math.floor(seconds / 60).toString().padStart(2, "0");
+    const ss = (seconds % 60).toString().padStart(2, "0");
+
+    return mm + ":" + ss;
+}
+```
