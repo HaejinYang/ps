@@ -4,7 +4,7 @@
 
 ## 목표
 
-- 문제 하나를 javascript와 typescript로 각각 해결한다.
+- 문제 하나를 javascript, typescript 등으로 푼다.
 - 해결하면서 배운 것, 체화되지 않은 것, 찾아본 것 등을 정리한다.
 - 해결 후, 다른 사람의 풀이를 보고 다른 점을 찾고 내것으로 만든다.
 
@@ -257,3 +257,37 @@
 ### 백준 2468
 - 마지막 줄에 노트로 아무지역도 물에 잠기지 않을 수가 있었다 ㅜㅜ. 이걸 못 보고 넘어간 것은 문제 마지막엔 알고리즘 분류가 있어서 일부러 안본것인데 이럴수가...
 - 아무튼... 이 문제는 일정 이하로 잠기는 곳으 찾는 것인데, 다른 말로 하면 일정 높이 이상을 봐도 된다는  것이랑 동일하여 그렇게 풀었다.
+
+### 백준 4659
+- 정규식을 적극적으로 사용했음.
+- 모음 하나를 반드시 포함해야함, 모음이 3개 혹은 자음이3개이상 오면 안됨은 만들었음.
+- 같은 글자가 연속적으로 두 번 오는것은 금지하는데 ee나oo는 허용하는것은 반복문으로 해결함.
+
+### 백준 2870
+- 문자열에서 유효한 숫자를 찾아 비내림차순으로 정렬하는 문제이다.
+- 전체적으로 논리는 맞았으나 문자열이 커짐에따라 숫자도 매우 커질 수 있다는 점을 간과하였다.
+- 문자열이 길 때는 BigInt를 염두해두어야 하고, sort를 쓸때 조심해야 한다. sort는 반환값으로 Number를 받고 있기 때문이다.
+- 만약 BigInt를 넘긴다면 타입에러가 발생한다.
+
+### 백준 2852
+- 초를 mm:ss 시간 형식으로 바꾸는 코드를 수정할 여지가 있다.
+```
+function secondsToMMSS(seconds) {
+    let mm = Math.floor(seconds / 60).toString();
+    mm = mm.length == 1? "0"+mm : mm;
+    let ss = (seconds % 60).toString();
+    ss = ss.length == 1? "0"+ss : ss;
+
+    return mm + ":" + ss;
+}
+
+이 코드에서 변환된 mm, ss가 한 자리 수 일 때 앞에 0을 붙여주는데
+js의 bultin function padStart나 padEnd류의 함수를 이용하면 좀더 깔끔해질수있다.
+
+function secondsToMMSS(seconds) {
+    const mm = Math.floor(seconds / 60).toString().padStart(2, "0");
+    const ss = (seconds % 60).toString().padStart(2, "0");
+
+    return mm + ":" + ss;
+}
+```
