@@ -22,42 +22,33 @@ function solve() {
         ++rowIndex;
     })
 
-    toggle(map, 0, T);
+    const answer = toggle(map, 0, T);
     
     console.log(answer);
 }
 
-let answer = Number.MAX_SAFE_INTEGER;
 function toggle(map, index, T) {
     if(index === T) {
-        let sum = 0;
+        let answer = 0;
         for(let i = 0; i < T; i++) {
-            let col = sumCol(map, i);
+            let sum = sumCol(map, i);
 
-            sum += Math.min(col, T - col);
+            answer += Math.min(sum, T - sum);
         }
 
-        if(sum < answer) {
-            answer = sum;
-        }
-
-        return;
+        return answer;
     }
 
-    toggle(map, index + 1, T);
+    const result = toggle(map, index + 1, T);
     toggleRow(map, index);
-    toggle(map, index + 1, T);
+    const toggleResult = toggle(map, index + 1, T);
+
+    return Math.min(result, toggleResult);
 }
 
 function toggleRow(arr, row) {
     for(let i = 0; i < arr.length; i++) {
         arr[row][i] = Number(!arr[row][i]);
-    }
-}
-
-function toggleCol(arr, col) {
-    for(let i = 0; i < arr.length; i++) {
-        arr[i][col] = Number(!arr[i][col]);
     }
 }
 
