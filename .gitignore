@@ -3,3 +3,4 @@ leetcode/test.ts
 .idea/**
 reference/
 baekjoon/test.txt
+*.exe
