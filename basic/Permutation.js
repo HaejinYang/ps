@@ -17,7 +17,9 @@ class Permutation {
     this.#count = 0;
     this.#output = [];
 
-    return this.#_calculate(0);
+    this.#_calculate(0);
+
+    return this.#output;
   }
 
   count() {
@@ -45,8 +47,6 @@ class Permutation {
         this.#input[i],
       ];
     }
-
-    return this.#output;
   }
 }
 
