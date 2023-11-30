@@ -1,0 +1,34 @@
+// 151번인 케이스에서 bad_alloc이 나와서 통과를 못했다.
+// 그렇지만, 바로 퍼뮤테이션 코드를 구현해서 근방까지 도달한게 재밌어서 기록함
+/**
+ * @param {string} s
+ * @param {string[]} words
+ * @return {number[]}
+ */
+var findSubstring = function(s, words) {
+    const targets = new Set();
+    const permutation = (n, r, depth, arr) => {
+        if(depth === r) {
+            targets.add(words.join(""));
+            return;
+        }
+
+        for(let i = depth; i < r; i++) {
+            [arr[i], arr[depth]] = [arr[depth], arr[i]];
+            permutation(n, r, depth + 1, arr);
+            [arr[i], arr[depth]] = [arr[depth], arr[i]];
+        }
+    }
+
+    permutation(words.length, words.length, 0, words);
+    // targets have all permutation result
+    const result = [];
+    for(let i = 0; i < s.length; i++) {
+        const sub = s.slice(i, words[0].length * words.length + i);
+        if(targets.has(sub)) {
+            result.push(i);
+        }
+    }
+    
+    return result;
+};
