@@ -21,19 +21,21 @@ var pathSum = function (root, targetSum) {
     path.push(node.val);
     sum += node.val;
 
-    if (node.left) {
-      preOrderTraversal(node.left, sum, [...path]);
-    }
-
-    if (node.right) {
-      preOrderTraversal(node.right, sum, [...path]);
-    }
-
     if (!node.left && !node.right) {
       if (sum === targetSum) {
         result.push([...path]);
       }
     }
+
+    if (node.left) {
+      preOrderTraversal(node.left, sum, path);
+    }
+
+    if (node.right) {
+      preOrderTraversal(node.right, sum, path);
+    }
+
+    path.pop();
   };
 
   preOrderTraversal(root, 0, []);
