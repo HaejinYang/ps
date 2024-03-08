@@ -1,0 +1,100 @@
+/**
+ * https://school.programmers.co.kr/learn/courses/30/lessons/159993
+ * 이 문제는 어떻게 풀어야 할지 잘 알았으나,
+ * pop을 shift로 생각하여 오래걸렸다.
+ */
+function solution(maps) {
+  let startX, startY, labberX, labberY;
+  let isFindStart = false;
+  let isFindLabber = false;
+
+  for (let i = 0; i < maps.length; i++) {
+    for (let j = 0; j < maps[0].length; j++) {
+      if (maps[i][j] === "S") {
+        [startX, startY] = [j, i];
+        isFindStart = true;
+      }
+
+      if (maps[i][j] === "L") {
+        [labberX, labberY] = [j, i];
+        isFindLabber = true;
+      }
+    }
+
+    if (isFindLabber && isFindStart) {
+      break;
+    }
+  }
+
+  const visited = Array(maps.length)
+    .fill(0)
+    .map((_) => Array(maps[0].length).fill(false));
+  const clearVisited = (visited) => {
+    for (let i = 0; i < visited.length; i++) {
+      for (let j = 0; j < visited[0].length; j++) {
+        visited[i][j] = false;
+      }
+    }
+  };
+
+  const bfs = (maps, start, visited, target) => {
+    const vector = [
+      [-1, 0],
+      [1, 0],
+      [0, 1],
+      [0, -1],
+    ];
+    const q = [[...start, 0]]; // 0: x, 1: y, 2: 여기까지 오는데 걸리는 횟수
+
+    while (q.length > 0) {
+      const [currentX, currentY, currentCount] = q.shift();
+      if (maps[currentY][currentX] === target) {
+        return currentCount;
+      }
+
+      vector.forEach((v) => {
+        const [dx, dy] = v;
+        const [nextX, nextY] = [currentX + dx, currentY + dy];
+
+        // 맵 범위 벗어남
+        if (
+          nextX < 0 ||
+          nextX >= maps[0].length ||
+          nextY < 0 ||
+          nextY >= maps.length
+        ) {
+          return;
+        }
+
+        // 벽
+        const nextTile = maps[nextY][nextX];
+        if (nextTile === "X") {
+          return;
+        }
+
+        // 방문했음
+        if (visited[nextY][nextX]) {
+          return;
+        }
+
+        visited[nextY][nextX] = true;
+        q.push([nextX, nextY, currentCount + 1]);
+      });
+    }
+
+    return -1;
+  };
+
+  const countForLabber = bfs(maps, [startX, startY], visited, "L");
+  if (countForLabber === -1) {
+    return -1;
+  }
+
+  clearVisited(visited);
+  const countForExit = bfs(maps, [labberX, labberY], visited, "E");
+  if (countForExit === -1) {
+    return -1;
+  }
+
+  return countForLabber + countForExit;
+}
