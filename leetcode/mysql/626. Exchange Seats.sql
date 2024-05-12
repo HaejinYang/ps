@@ -11,3 +11,15 @@ SELECT
 FROM Seat
 ORDER BY id ASC;
 
+-- 다시 풀어봄, 별차이는 없네...
+-- id가 홀수면 id +1, id가 짝수면 id-1
+SELECT 
+    CASE
+        WHEN (id % 2) = 1 AND id = (SELECT MAX(id) FROM Seat) THEN id
+        WHEN (id % 2) = 1 THEN id + 1
+        WHEN (id % 2) = 0 THEN id - 1
+    END
+    AS id,
+    student
+FROM Seat
+ORDER BY id ASC
