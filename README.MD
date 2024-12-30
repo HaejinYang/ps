@@ -8,6 +8,10 @@
 - 해결하면서 배운 것, 체화되지 않은 것, 찾아본 것 등을 정리한다.
 - 해결 후, 다른 사람의 풀이를 보고 다른 점을 찾고 내것으로 만든다.
 
+## 다시풀기
+
+- [다시풀기](https://docs.google.com/spreadsheets/d/1Q4xTxK9pouLHMkueAhyK4lDVSxQwSQPdVbdKS1d_fiw/edit?gid=0#gid=0)
+
 ## 문제
 
 ### 13. Roman to Integer
